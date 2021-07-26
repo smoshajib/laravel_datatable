@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+Route::get('/button', [UsersController::class, 'button_table'])->name('view.button');
+Route::get('/getbutton', [UsersController::class, 'get_button_table'])->name('get.button');
+Route::resource('/',UsersController::class);
+
